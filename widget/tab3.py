@@ -1,5 +1,6 @@
 from PySide2.QtCore import Qt
-from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QSlider, QDial, QLabel, QSpinBox, QDoubleSpinBox
+from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QSlider, QDial, QLabel, QSpinBox, QDoubleSpinBox, \
+    QPushButton
 
 
 class Tab3(QWidget):
@@ -8,7 +9,11 @@ class Tab3(QWidget):
         self.tab3()
 
     def tab3(self):
+        btn1 = QPushButton(self)
+        btn1.setText('ok')
 
+        btn2 = QPushButton(self)
+        btn2.setText('cancel')
 
         spin = QDoubleSpinBox()
         spin.setRange(0, 200)
@@ -42,6 +47,8 @@ class Tab3(QWidget):
         hbox.addStretch(1)
         hbox.addWidget(dial)
         hbox.addStretch(1)
+        hbox.addWidget(btn1)
+        hbox.addWidget(btn2)
 
         vbox = QVBoxLayout()
         vbox.addStretch(1)

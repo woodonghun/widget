@@ -27,14 +27,15 @@ class Tab1(QWidget):
         edt2 = QLineEdit(self)
         edt3 = QLineEdit(self)
 
-        box = QHBoxLayout()
-        box.addStretch(1)
-        box.addWidget(rad1)
-        box.addWidget(rad2)
-        box.addStretch(1)
-        box.addWidget(btn1)
-        box.addWidget(btn2)
-        box.addStretch(0)
+        box1 = QHBoxLayout()
+        box1.addStretch(0)
+        box1.addWidget(rad1)
+        box1.addWidget(rad2)
+
+
+        box2 = QHBoxLayout()
+        box1.addWidget(btn1)
+        box1.addWidget(btn2)
 
         vbox = QVBoxLayout()
         vbox.addWidget(label1)
@@ -43,7 +44,8 @@ class Tab1(QWidget):
         vbox.addWidget(edt2)
         vbox.addWidget(label3)
         vbox.addWidget(edt3)
-        vbox.addLayout(box)
+        vbox.addLayout(box1)
+        vbox.addLayout(box2)
 
         tab = QWidget()
         tab.setLayout(vbox)

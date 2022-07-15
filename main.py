@@ -2,6 +2,7 @@ import sys
 import widget.tab1
 import widget.tab2
 import widget.tab3
+import widget.tab4
 from PySide2.QtWidgets import QWidget, QApplication, QTabWidget, QVBoxLayout, QCheckBox, QPushButton, QRadioButton, \
     QHBoxLayout
 
@@ -21,12 +22,14 @@ class Main(QWidget):
         tab1 = widget.tab1.Tab1
         tab2 = widget.tab2.Tab2
         tab3 = widget.tab3.Tab3
+        tab4 = widget.tab4.Tab4
 
         tabs = QTabWidget()
 
         tabs.addTab(tab1.tab1(self), 'tab1')
         tabs.addTab(tab2.initUI(self), 'tab2')
         tabs.addTab(tab3.tab3(self), 'tab3')
+        tabs.addTab(tab4.tab4(self), 'tab4')
 
         vbox = QVBoxLayout()
         vbox.addWidget(tabs)
