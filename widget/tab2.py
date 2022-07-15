@@ -1,7 +1,8 @@
 
 
-from PySide2.QtCore import QTime
-from PySide2.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel, QHBoxLayout, QCalendarWidget, QTimeEdit
+from PySide2.QtCore import QDate, QTime
+from PySide2.QtWidgets import QWidget, QApplication, QTabWidget, QVBoxLayout, QCheckBox, QPushButton, QRadioButton, \
+    QLabel, QLineEdit, QHBoxLayout, QCalendarWidget, QTimeEdit
 
 
 class Tab2(QWidget):
@@ -20,18 +21,15 @@ class Tab2(QWidget):
 
         self.cal = QCalendarWidget(self)
         self.cal.setGridVisible(True)
+        self.cal.selectionChanged.connect(self.showDate)
 
         self.lbl = QLabel(self)
         date = self.cal.selectedDate()
         self.lbl.setText(date.toString())
 
-        self.selectedDateVar = self.cal.selectedDate()
-
-        self.cal.selectionChanged.connect(self.lbl.setText(self.selectedDateVar.toString()))
-
         timeedit = QTimeEdit(self)
         timeedit.setTime(QTime.currentTime())
-        timeedit.setTimeRange(QTime(0, 00, 00), QTime(23, 00, 00))
+        timeedit.setTimeRange(QTime(3, 00, 00), QTime(23, 30, 00))
         timeedit.setDisplayFormat('hh:mm:ss')
 
         hbox = QHBoxLayout()
@@ -51,5 +49,9 @@ class Tab2(QWidget):
         tab.setLayout(vbox)
         return tab
 
+    def showDate(self):
+        cal_date = self.cal.selectedDate()
+        strDate = cal_date.toString('yyyy.MM.DD')
+        self.lbl.setText(strDate)
 
 

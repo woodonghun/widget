@@ -1,5 +1,5 @@
 import sys
-
+import glob
 from PySide2.QtCore import QDate
 from PySide2.QtWidgets import QWidget, QApplication, QTabWidget, QVBoxLayout, QCheckBox, QPushButton, QRadioButton, \
     QLabel, QLineEdit, QHBoxLayout, QCalendarWidget
@@ -11,6 +11,7 @@ class Tab1(QWidget):
         self.tab1()
 
     def tab1(self):
+        txt = open("C:\woo_project\widget\widget\id",'a')
         label1 = QLabel('이름 :')
         label2 = QLabel('나이 :')
         label3 = QLabel('국가 :')
